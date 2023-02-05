@@ -1,0 +1,6 @@
+name: SPLExample
+version: '${project.version}'
+main: net.mcaurora.splexample.SPLExample
+api-version: 1.19
+authors: [ jesus_is_hot ]
+description: Example plugin using SimplePluginLibrary.
