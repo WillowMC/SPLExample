@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>net.mcaurora</groupId>
+    <groupId>net.willowmc</groupId>
     <artifactId>SPLExample</artifactId>
     <version>0.1</version>
     <packaging>jar</packaging>
@@ -73,7 +73,7 @@
         </dependency>
 
         <dependency>
-            <groupId>net.mcaurora.spl</groupId>
+            <groupId>net.willowmc.spl</groupId>
             <artifactId>SimplePluginLibrary</artifactId>
             <version>0.1</version>
         </dependency>

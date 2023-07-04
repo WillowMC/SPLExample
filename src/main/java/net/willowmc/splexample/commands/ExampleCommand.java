@@ -1,10 +1,10 @@
-package net.mcaurora.splexample.commands;
+package net.willowmc.splexample.commands;
 
-import net.mcaurora.spl.command.Command;
-import net.mcaurora.spl.command.CommandContext;
-import net.mcaurora.spl.command.CommandData;
-import net.mcaurora.spl.command.Subcommand;
-import net.mcaurora.splexample.TestEnum;
+import net.willowmc.spl.command.Command;
+import net.willowmc.spl.command.CommandContext;
+import net.willowmc.spl.command.CommandData;
+import net.willowmc.spl.command.Subcommand;
+import net.willowmc.splexample.TestEnum;
 
 /**
  * Complex spl example command.

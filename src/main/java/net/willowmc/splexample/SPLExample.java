@@ -1,4 +1,4 @@
-package net.mcaurora.splexample;
+package net.willowmc.splexample;
 
 import org.bukkit.plugin.java.JavaPlugin;
 

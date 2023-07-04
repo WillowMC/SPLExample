@@ -1,11 +1,11 @@
-package net.mcaurora.splexample;
+package net.willowmc.splexample;
 
 import lombok.experimental.UtilityClass;
-import net.mcaurora.spl.SimplePluginLibrary;
-import net.mcaurora.spl.command.Command;
-import net.mcaurora.spl.command.completion.CompletionRegistry;
-import net.mcaurora.splexample.commands.ExampleCommand;
-import net.mcaurora.splexample.commands.TestCommand;
+import net.willowmc.spl.SimplePluginLibrary;
+import net.willowmc.spl.command.Command;
+import net.willowmc.spl.command.completion.CompletionRegistry;
+import net.willowmc.splexample.commands.ExampleCommand;
+import net.willowmc.splexample.commands.TestCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 

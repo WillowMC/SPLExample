@@ -1,4 +1,4 @@
-package net.mcaurora.splexample;
+package net.willowmc.splexample;
 
 public enum TestEnum {
     VALUE1,

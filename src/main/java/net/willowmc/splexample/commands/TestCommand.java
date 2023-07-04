@@ -1,8 +1,8 @@
-package net.mcaurora.splexample.commands;
+package net.willowmc.splexample.commands;
 
-import net.mcaurora.spl.command.Command;
-import net.mcaurora.spl.command.CommandContext;
-import net.mcaurora.spl.command.CommandData;
+import net.willowmc.spl.command.Command;
+import net.willowmc.spl.command.CommandContext;
+import net.willowmc.spl.command.CommandData;
 
 /**
  * Simple spl example command.
