@@ -4,6 +4,9 @@ import lombok.experimental.UtilityClass;
 import net.willowmc.spl.SimplePluginLibrary;
 import net.willowmc.spl.command.Command;
 import net.willowmc.spl.command.completion.CompletionRegistry;
+import net.willowmc.spl.config.Config;
+import net.willowmc.spl.config.ConfigCompletion;
+import net.willowmc.splexample.commands.ConfigCommand;
 import net.willowmc.splexample.commands.ExampleCommand;
 import net.willowmc.splexample.commands.TestCommand;
 import org.bukkit.Bukkit;
@@ -20,11 +23,20 @@ public class Features {
         CompletionRegistry.register("player", user -> Bukkit.getOnlinePlayers().stream().map(Player::getName).toList());
         CompletionRegistry.registerEnum("enum", TestEnum.class);
 
-        // register commands and instance spl
+        // store these configs in a way they can be accessed where they are needed
+        // you can get them again by name, from the SimplePluginLibrary.getCfg.get() method, but it is faster to store it yourself
+        Config config = new Config("config");
+        Config messages = new Config("messages", new ConfigCompletion("placeholder", () -> "test"));
+
+        // register commands
         Command[] commands = {
                 new TestCommand(),
-                new ExampleCommand()
+                new ExampleCommand(),
+                new ConfigCommand(config, messages)
         };
-        new SimplePluginLibrary(plugin, commands);
+
+        // create spl instance
+        // if you have a lot of config files, put them into an array instead and pass the array as the past argument
+        new SimplePluginLibrary(plugin, commands, config, messages);
     }
 }

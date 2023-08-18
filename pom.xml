@@ -6,7 +6,7 @@
 
     <groupId>net.willowmc</groupId>
     <artifactId>SPLExample</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
     <packaging>jar</packaging>
 
     <name>SPLExample</name>
@@ -75,13 +75,13 @@
         <dependency>
             <groupId>net.willowmc.spl</groupId>
             <artifactId>SimplePluginLibrary</artifactId>
-            <version>0.1</version>
+            <version>0.2</version>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>1.18.26</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
