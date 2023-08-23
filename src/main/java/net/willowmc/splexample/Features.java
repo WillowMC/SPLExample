@@ -7,18 +7,25 @@ import net.willowmc.spl.config.Config;
 import net.willowmc.spl.config.ConfigCompletion;
 import net.willowmc.spl.feature.FB;
 import net.willowmc.spl.feature.Feature;
+import net.willowmc.spl.tool.Tool;
+import net.willowmc.spl.tool.ToolEncryption;
 import net.willowmc.splexample.features.ConfigCommand;
 import net.willowmc.splexample.features.ExampleCommand;
 import net.willowmc.splexample.features.MultiFeature;
 import net.willowmc.splexample.features.TestCommand;
 import net.willowmc.splexample.features.single.SingleFeatureCommand;
 import net.willowmc.splexample.features.single.SingleFeatureListener;
+import net.willowmc.splexample.features.tool.ToolExample;
+import net.willowmc.splexample.features.tool.ToolExampleCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 @UtilityClass
 public class Features {
     public void init(SPLExample plugin) {
+        // Set your tool salt for encrypted tool values, note that this won't help much if your plugin is open source
+        ToolEncryption.TOOL_SALT = "SECRET_STRING";
+
         // register tab completions
         CompletionRegistry.registerDouble("x", user -> user.getLocation().getX());
         CompletionRegistry.registerDouble("y", user -> user.getLocation().getY());
@@ -39,11 +46,19 @@ public class Features {
                 new FB().command(new ConfigCommand(config, messages)).b(),
                 new FB().command(new MultiFeature.MultiFeatureCommand()).listener(new MultiFeature.MultiFeatureListener()).b(),
                 new FB().command(new SingleFeatureCommand()).listener(new SingleFeatureListener()).b(),
+                new FB().command(new ToolExampleCommand()).b(),
 
         };
 
         // create spl instance
         // if you have a lot of config files, put them into an array instead and pass the array as the past argument
-        new SimplePluginLibrary(plugin, features, config, messages);
+        SimplePluginLibrary spl = new SimplePluginLibrary(plugin, features, config, messages);
+
+        // register tools
+        Tool[] tools = {
+                ToolExample.getTool(),
+                ToolExample.getTool2()
+        };
+        spl.getTm().registerAll(tools, plugin);
     }
 }
