@@ -1,4 +1,4 @@
-package net.willowmc.splexample.commands;
+package net.willowmc.splexample.features;
 
 import net.willowmc.spl.command.Command;
 import net.willowmc.spl.command.CommandContext;

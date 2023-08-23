@@ -2,13 +2,17 @@ package net.willowmc.splexample;
 
 import lombok.experimental.UtilityClass;
 import net.willowmc.spl.SimplePluginLibrary;
-import net.willowmc.spl.command.Command;
 import net.willowmc.spl.command.completion.CompletionRegistry;
 import net.willowmc.spl.config.Config;
 import net.willowmc.spl.config.ConfigCompletion;
-import net.willowmc.splexample.commands.ConfigCommand;
-import net.willowmc.splexample.commands.ExampleCommand;
-import net.willowmc.splexample.commands.TestCommand;
+import net.willowmc.spl.feature.FB;
+import net.willowmc.spl.feature.Feature;
+import net.willowmc.splexample.features.ConfigCommand;
+import net.willowmc.splexample.features.ExampleCommand;
+import net.willowmc.splexample.features.MultiFeature;
+import net.willowmc.splexample.features.TestCommand;
+import net.willowmc.splexample.features.single.SingleFeatureCommand;
+import net.willowmc.splexample.features.single.SingleFeatureListener;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -28,15 +32,18 @@ public class Features {
         Config config = new Config("config");
         Config messages = new Config("messages", new ConfigCompletion("placeholder", () -> "test"));
 
-        // register commands
-        Command[] commands = {
-                new TestCommand(),
-                new ExampleCommand(),
-                new ConfigCommand(config, messages)
+        // register features
+        Feature[] features = {
+                new FB().command(new TestCommand()).b(),
+                new FB().command(new ExampleCommand()).b(),
+                new FB().command(new ConfigCommand(config, messages)).b(),
+                new FB().command(new MultiFeature.MultiFeatureCommand()).listener(new MultiFeature.MultiFeatureListener()).b(),
+                new FB().command(new SingleFeatureCommand()).listener(new SingleFeatureListener()).b(),
+
         };
 
         // create spl instance
         // if you have a lot of config files, put them into an array instead and pass the array as the past argument
-        new SimplePluginLibrary(plugin, commands, config, messages);
+        new SimplePluginLibrary(plugin, features, config, messages);
     }
 }
