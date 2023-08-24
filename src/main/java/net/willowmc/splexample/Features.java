@@ -37,7 +37,7 @@ public class Features {
         // store these configs in a way they can be accessed where they are needed
         // you can get them again by name, from the SimplePluginLibrary.getCfg.get() method, but it is faster to store it yourself
         Config config = new Config("config");
-        Config messages = new Config("messages", new ConfigCompletion("placeholder", () -> "test"));
+        Config messages = new Config("messages", new ConfigCompletion("placeholder", s -> "test " + s));
 
         // register features
         Feature[] features = {

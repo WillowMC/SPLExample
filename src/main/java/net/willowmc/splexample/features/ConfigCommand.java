@@ -22,6 +22,7 @@ public class ConfigCommand extends Command {
     protected boolean doCommand(CommandContext ctx) {
         ctx.respond("" + config.getInt("test"));
         ctx.respond(messages.getStringFormatted("test"));
+        ctx.respond(messages.getStringFormatted("test", "arg1"));
         return true;
     }
 }
